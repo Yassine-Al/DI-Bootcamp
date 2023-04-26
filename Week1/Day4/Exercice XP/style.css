@@ -1,0 +1,29 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.bar {
+    width: 200px;
+    height: 1000px;
+    float: left;
+    margin-right: 20px;
+    background-color: #ddd;
+}
+
+.info {
+    clear: right;
+    margin: auto;
+    margin-left: 60px;
+    padding: 20px;
+}
+
+
+.fa {
+    
+}
+
+
+
+

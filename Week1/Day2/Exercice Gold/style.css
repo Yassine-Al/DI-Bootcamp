@@ -1,0 +1,113 @@
+*{
+    margin: 0px;
+}
+
+.bar {
+    margin: 0px;
+    background-color: #eee;
+    height: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.bar p {
+    color: black;
+    display: inline;
+    margin-left: 80px;
+    padding-top: 5px;
+}
+
+.bar button {
+    background-color: #007CFF;
+    color: white;
+    position: absolute;
+    border: #eee;
+    right: 90px;
+    font-size: 15px;
+}
+
+
+.back_img {
+    background-image: url("https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    /* opacity: 50%;*/
+    position: relative;
+}
+
+
+
+.int {
+    text-align: center;
+    position: relative;
+    top: 50%;
+}
+
+.int input {
+    font-size: 15px;
+    border-radius: 3px;
+    width: 200px;
+    text-indent: 5px;
+    border: #eee;
+
+}
+
+.int button {
+    font-size: 15px;
+    background-color: #007CFF;
+    border: #eee;
+    color: white;
+}
+
+.back_img p {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    top: 140px;
+}
+
+.sous {
+    background-color: #eee;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+
+.sous1, 
+.sous2,
+.sous3 {
+    width: 200px;
+    height: 150px;
+    margin: 15px;
+    padding: 30px;  
+}
+
+.sous1 img,
+.sous2 img,
+.sous3 img {
+    width: 100px;
+    height: 100px;
+    background-color: #eee;
+    display: block;
+    margin: auto;
+}
+
+.sous1 h4,
+.sous2 h4,
+.sous3 h4 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.sous1 p,
+.sous2 p,
+.sous3 p {
+    text-align: start;
+
+}
+
