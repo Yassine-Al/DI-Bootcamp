@@ -1,0 +1,140 @@
+body{
+    margin: 0px;
+    margin-right: 0px;
+}
+
+img {
+    width: 30px;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+nav {
+    background-color: black;
+    padding: 5px;
+    width: 100%;
+    
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    right: 200px;
+    padding-top: 10px;
+}
+
+.lien_sing{
+    position: absolute;
+    right: 120px;
+    padding-top: 10px;
+}
+
+.lien_login {
+    position: absolute;
+    right: 50px;
+    padding-top: 10px;
+
+}
+
+.section {
+    /* border: 1px black solid; */
+    display: inline-block;
+    display: flex;
+    justify-content: space-around;
+    margin: 0px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.cont {
+    position: relative;
+    background-color: #eee;
+    
+}
+
+.cont img {
+    width: 150px;
+    height: 200px;
+}
+
+h5 {
+    text-align: center;
+    font-weight: 900;
+    font-size: 15px;
+}
+
+div button {
+    position: relative;
+    left: 30px;
+    display: block;
+}
+
+.price span {
+    text-align: start;
+    padding-left: 20px;
+    color: rgb(20, 168, 118);
+    position: relative;
+    left: 15px;
+    bottom: 10px;
+}
+
+.section .price p {
+    display: inline-block;
+    opacity: 50%;
+    position: relative;
+    left: 20px;
+    bottom: 10px;
+} 
+
+footer {
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+footer p {
+    text-align: end;
+    margin-right: 30px;
+}   
+
+
+
+
+.new {
+    background-color: rgb(25, 192, 125);
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: 0px;
+    
+}
+
+.new .New_txt ,
+.red .New_txt  {
+    text-align: center;
+    position: relative;
+    top: 7px;
+    left: 5px;
+    font-weight: 900;
+    color: white;
+    font-size: 13px;
+}
+
+.red {
+    background-color: red;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: 0px;
+    left: 130px;
+}
+
+
+.price button:hover {
+    background-color: green;
+    color: white;
+}

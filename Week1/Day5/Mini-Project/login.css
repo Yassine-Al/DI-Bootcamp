@@ -1,0 +1,99 @@
+body{
+    margin: 0px;
+}
+
+img {
+    width: 30px;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+nav {
+    background-color: black;
+    padding: 5px;
+    width: 100%;
+    
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    right: 200px;
+    padding-top: 10px;
+}
+
+.lien_sing{
+    position: absolute;
+    right: 120px;
+    padding-top: 10px;
+}
+
+.lien_login {
+    position: absolute;
+    right: 50px;
+    padding-top: 10px;
+
+}
+
+footer {
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+footer p {
+    text-align: end;
+    margin-right: 30px;
+} 
+
+div {
+    position: relative;
+    background-color: #eee;
+}
+
+.formul {
+    border: 2px solid black ;
+    width: 400px;
+    margin: auto;
+    margin-top: 90px;
+}
+
+.formul h1 {
+    color: white;
+    background-color: black;
+    padding: 0px;
+    padding-top: 0px;
+    text-align: center;
+    margin: 0px;
+}
+
+
+form {
+    padding: 30px;
+}
+
+form label {
+    font-weight: 900;
+    position: relative;
+    left: 0px;
+    text-decoration: underline;
+}
+
+div input {
+    text-align: center;
+    position: absolute;
+    right: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
