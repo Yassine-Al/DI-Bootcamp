@@ -56,6 +56,21 @@ else
 
 // _____Exercice 3 : Verbe
 
+let chaine = prompt('Ecrire un verge :')
+
+if (chaine.length >= 3 && chaine.indexOf('ing') == -1 )
+{
+    console.log(chaine = chaine +'ing')
+}
+else if (chaine.length > 3 && chaine.indexOf('ing') >=0)
+{
+    console.log(chaine = chaine +'ly')
+}
+else 
+{
+    console.log(chaine)
+}
+
 
 
 
