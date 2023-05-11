@@ -36,14 +36,25 @@ let Quote = [
 
 let btnrecup = document.getElementById("recuperer")
 
-function recup()
+let lastQuoteIndex;
+
+function recup()  
 {
     let random = Math.floor(Math.random() * (Quote.length))
-
+    
     let index = Quote[random]
-
+    
+    
     let section = document.getElementById('section')
     section.textContent=index.quote
+    
+    lastQuoteIndex = section.textContent;
+    
+    while (random === lastQuoteIndex) {
+        random = Math.floor(Math.random() * (Quote.length))
+        return random
+    }
+
     section.dataset.id = index.id
     span[3].textContent = index.like
     span[0].textContent = ""
@@ -132,3 +143,19 @@ nbrmot.addEventListener('click',(e)=>
     let split = section.textContent.split(' ')
     span[2].textContent = split.length
 })
+
+
+let body = document.querySelector('body')
+let form = document.createElement('form')
+let select = document.createElement('select')
+let option = document.createElement('option')
+
+body.appendChild(form)
+form.appendChild(select)
+select.appendChild(option)
+
+
+
+
+
+
