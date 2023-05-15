@@ -96,6 +96,8 @@ btnajout.addEventListener('click',(e) =>
     console.log(Quote)
     citation.value = ""
     auteur.value = ""
+
+    selt()
 }
 )
 
@@ -148,14 +150,79 @@ nbrmot.addEventListener('click',(e)=>
 let body = document.querySelector('body')
 let form = document.createElement('form')
 let select = document.createElement('select')
-let option = document.createElement('option')
+
+select.setAttribute('id','select')
 
 body.appendChild(form)
 form.appendChild(select)
-select.appendChild(option)
+
+
+let btnaffich = document.createElement('button')
+form.appendChild(btnaffich)
+btnaffich.innerHTML = 'Afficher'
+
+
+// const unique = [...new Set(Quote.map((item) => item.author))];
+
+// console.log(unique)
+
+var temp = [];
+
+function selt()
+{
+    let aut = Quote.map((val) => {
+    
+        return val.author
+    
+    }) 
+    
+    aut.forEach(el => {
+        if(!temp.includes(el))
+        {
+            temp.push(el)
+        }
+    }
+    )
+     
+
+    for (let i = 0; i < temp.length; i++) {
+        if(!i) select.innerHTML = ''
+        let option = document.createElement('option')
+    
+        option.value = temp[i]
+        option.text = temp[i]
+
+        select.appendChild(option)
+        
+    }
+
+}
+
+selt()
 
 
 
+let div = document.createElement("div");
+form.appendChild(div)
+
+
+
+btnaffich.addEventListener("click",(e)=>{
+    e.preventDefault()
+
+   let sel = document.getElementById('select').value;
+
+
+    let quotes = Quote.filter(function(quote) {
+        return quote.author == sel;
+    });
+
+    quotes.forEach(function(quote) {
+    div.innerHTML = quote.quote + "<br>";
+    });
+
+
+})
 
 
 
