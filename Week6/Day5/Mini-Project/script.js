@@ -216,13 +216,31 @@ btnaffich.addEventListener("click",(e)=>{
     let quotes = Quote.filter(function(quote) {
         return quote.author == sel;
     });
-
+    
+    div.textContent = ''
     quotes.forEach(function(quote) {
-    div.innerHTML = quote.quote + "<br>";
+        console.log(quote.quote)
+    div.innerHTML += quote.quote + "<br>";
     });
 
 
 })
 
+for (let i = 0; i < 4; i++) {
+    let br = document.createElement('br')
+    body.appendChild(br)
+    
+}
 
 
+let form2 = document.createElement('form')
+console.log(form2)
+let input = document.createElement('input')
+input.setAttribute('type','number')
+form2.appendChild(input)
+
+body.appendChild(form2)
+let btnsrch = document.createElement('button')
+form2.appendChild(btnsrch)
+
+btnsrch.textContent = 'search'
