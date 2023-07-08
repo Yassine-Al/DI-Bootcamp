@@ -131,7 +131,7 @@
 
 // let p = document.querySelector('p')
 
-// p .addEventListener('mouseover',highlight)
+// p .addEventListener('mouseout',highlight)
 // p .addEventListener('mouseover',return_normal)
 
 

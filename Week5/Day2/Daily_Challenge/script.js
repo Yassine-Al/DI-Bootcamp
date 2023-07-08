@@ -1,10 +1,11 @@
 let form = document.getElementById('libform')
 
-let Noun = document.getElementById('Noun')
-let Adjective = document.getElementById('Adjective')
-let Person = document.getElementById('Person')
-let Verb = document.getElementById('Verb')
-let Place = document.getElementById('Place')
+let Noun = document.getElementById('noun').value
+let Adjective = document.getElementById('adjective').value
+let Person = document.getElementById('person').value
+let Verb = document.getElementById('verb').value
+let Place = document.getElementById('place').value
+
 
 
 
