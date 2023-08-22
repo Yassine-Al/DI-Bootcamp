@@ -1,116 +1,96 @@
-body {
-    background-color: black;
-  
-    background-image: url("https://i.giphy.com/media/TxVVB6PfWMjE4/200.webp");
-  
-    font-family: 'Helvetica Neue';
-  
-    color: yellow;
-    text-align: center;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-  
-/*.wrapper {
-width: 1000px;
-margin: 0 auto;
-}*/
-
-
-.logo {
-
-background: url("https://i.dlpng.com/static/png/253278_thumb.png") center center no-repeat;
-width: 400px;
-height: 300px;
-
-/*background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png") center center no-repeat;*/
-
-/* background-size: contain;*/
-/*width: 1000px;
-height: 300px;*/
-margin:  0 auto;
-
-margin-top: -20px;
+body{
+    width: 100vw;
+    height: 100vh;
 }
-
-
-.info-container{
-
-border: 3px solid yellow;
-border-radius: 15px;
-
-width: 600px;
-height: 250px;
-
-margin: 0 auto;
-
-margin-top: -25px;
-
-}
-
-
-#button{
-    margin-top: 20px;
-
-    border: 3px solid yellow;
-    border-radius: 10px;
-
-    width: 180px;
-    height: 40px;
-
-    font-weight: bold;
-    font-size: 20px;
-
-    cursor: pointer;
-}
-
-
-button:focus {
-
-    outline:0;
-}
-
-#name{
-    color: white;
-
-    font-size: 30px;
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url(https://i.giphy.com/media/TxVVB6PfWMjE4/200.webp);
+    background-color: lightblue;
     
 }
-
-#height{
+.display{
+    width: 600px;
+    min-height: 300px;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    font-size: 18px;
     color: white;
-    /*font-weight: bold;*/
-
-    font-size: 20px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-
-#gender{
-    color: white;
-    /*font-weight: bold;*/
-
-    font-size: 20px;
+.button{
+    padding: 3px;
+    font-size: 18px;
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid yellow;
+    border-radius: 8px;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    margin-top: 10px;
 }
-
-#birth-year{
-    color: white;
-    /*font-weight: bold;*/
-
+.pstyle{
     font-size: 20px;
-}
-
-#home-world{
-    color: white;
-    /*font-weight: bold;*/
-
-    font-size: 20px;
-}
-
-
-p{
     color: white;
     font-weight: bold;
+    background-color: transparent;
+    margin: 8px auto;
+    padding: 2px;
+    width: 100%;
+    text-align: center;
 
-    font-size: 30px;
 }
-  
-  
-  
-  
+.namestyle{
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+    margin: 8px auto;
+    padding: 2px;
+    width: 100%;
+    text-align: center;
+
+}
+.loading{
+    width: 80%;
+    height: 80%;
+    text-align: center;
+}
+.icon{
+    font-size: 50px;
+    color: white;
+    margin-top: 10px;
+}
+.header{
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.hide{
+    display: none;
+}
+.erreurMsg{
+    width: 100%;
+    height: fit-content;
+    font-size: 20px;
+    color: white;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 20px;
+    padding: 3px;
+    display: none;
+}

@@ -1,105 +1,123 @@
-// init ajax
-let xhr = new XMLHttpRequest();
 
-//Select elements in DOM
-let button = document.querySelector('#button');
-let names = document.querySelector('#name');
-let height = document.querySelector('#height');
-let gender = document.querySelector('#gender');
-let birthYear = document.querySelector('#birth-year');
-let homeWorld = document.querySelector('#home-world');
+/*------------MiniProject-----------------*/
+// Creat HTML Element
+(function createElement(){
+  let body = document.getElementsByTagName('body')[0]
+  const container = document.createElement('div')
+  container.classList.add('container')
+  body.appendChild(container)
 
-//Get the info from API and catch for Errors
-function getInfo (){
-  //Call Loading Data
- 	updateWithLoading();
-  //Get Random people in the API between 1 and 88
- 	let randomNumber = Math.floor((Math.random() * 88) + 1);
-   let apiUrl = 'https://swapi.dev/api/people/' + randomNumber + '/';
-   
-  // ajax
-  xhr.open('GET', apiUrl);
-  xhr.responseType = 'json';
-  xhr.send();
-  xhr.onload = function(){
-    if(xhr.status != 200){
-      //console.log(`Error: ${xhr.status}: ${xht.statusText}`);
-      updateInfoWithError();
-      console.log('there was an error');
-    }
-    else{
-      updateInfo(xhr.response);
-    }
+  const display = document.createElement('div')
+  display.classList.add('display')
+  container.appendChild(display)
+
+  const pName = document.createElement('p')
+  pName.classList.add('namestyle')
+  pName.setAttribute('id', 'name')
+  display.appendChild(pName)
+
+  const pHeight = document.createElement('p')
+  pHeight.classList.add('pstyle')
+  pHeight.setAttribute('id', 'height')
+  display.appendChild(pHeight)
+  
+
+  const pGender = document.createElement('p')
+  pGender.classList.add('pstyle')
+  pGender.setAttribute('id', 'gender')
+  display.appendChild(pGender)
+
+  const pBirthYear = document.createElement('p')
+  pBirthYear.classList.add('pstyle')
+  pBirthYear.setAttribute('id', 'birthyear')
+  display.appendChild(pBirthYear)
+
+  const pHomeWorld = document.createElement('p')
+  pHomeWorld.classList.add('pstyle')
+  pHomeWorld.setAttribute('id', 'homeworld')
+  display.appendChild(pHomeWorld)
+
+  const btnFind = document.createElement('button')
+  btnFind.classList.add('button')
+  btnFind.setAttribute('id', 'find')
+  btnFind.textContent = "Find Someone"
+  container.appendChild(btnFind)
+
+  // loading part
+
+  const loading = document.createElement('div')
+  loading.setAttribute('id', 'load')
+  loading.classList.add('loading')
+  loading.classList.add('hide')
+
+  const icon =document.createElement('i')
+  icon.setAttribute('class','fa-solid fa-spinner fa-spin-pulse')
+  icon.classList.add('icon')
+  loading.appendChild(icon)
+
+  const header =document.createElement('h1')
+  header.textContent = "Loading..."
+  header.classList.add('header')
+  loading.appendChild(header)
+  display.appendChild(loading)
+
+  // erreur part
+  const erreurMsg = document.createElement('p')
+  erreurMsg.classList.add('erreurMsg')
+  erreurMsg.textContent = "Oh No! That person isn't available"
+  erreurMsg.setAttribute('id', 'erreur')
+  display.appendChild(erreurMsg)
+
+})()
+
+//send API
+document.getElementById('find').addEventListener('click',getinfo)
+function getinfo (e){
+  e.preventDefault()
+  let id = Math.floor(Math.random() * 90);
+ document.getElementById('load').style.display = "block"
+  function clearDisplay(){
+      document.getElementById('name').textContent = "";
+      document.getElementById('height').textContent = "";
+      document.getElementById('gender').textContent = ""
+      document.getElementById('birthyear').textContent = ""
+      document.getElementById('homeworld').textContent = "";
+      document.getElementById('erreur').style.display = "none"
   }
-  xhr.onerror = function() {
-    updateInfoWithError();
-    console.log('there was an error');
-  };
- }
+  clearDisplay()
 
- //Display info on screen
- function updateInfo(resp){
-   
-  // ajax
-  let url = new URL(resp.homeworld);
-  url.protocol = 'https:'
-  xhr.open('GET', url.href);
+  fetch(`https://www.swapi.tech/api/people/${id}`)
+  .then((response) => {
+      if(response.ok){
+          return response.json()
+      } else {
+          if(response.status == 404){
+              document.getElementById('erreur').style.display = "block"
+          }else{
+              throw new Error("Wrong artwork")
+          }
+      }
+  })
+  .then((response) =>{
+      document.getElementById('name').textContent = response.result.properties.name;
+      document.getElementById('height').textContent = "Height is: " +response.result.properties.height;
+      document.getElementById('gender').textContent = "Gender is: " +response.result.properties.gender;
+      document.getElementById('birthyear').textContent = "Birth Year is: " +response.result.properties.birth_year;
+      fetch(`${response.result.properties.homeworld}`)
+      .then((response) => {
+          if(response.ok){
+              return response.json()
 
-  xhr.responseType = 'json';
-  xhr.send();
-  xhr.onload = function(){
-    if(xhr.status != 200){
-      console.log('there was an error 2');
-    }
-    else{
-      updateInfo2(xhr.response)
-    }
-  }
-  xhr.onerror = function() {
-    console.log('there was an error 3');
-  };
- 	console.log(resp.homeworld);
-  console.log(resp.name);
- 	console.log(names);
-
-  names.innerText = resp.name;
-  height.innerText = `Height: ${resp.height}`;
-  gender.innerText = `Gender: ${resp.gender}`;
-  birthYear.innerText = `Birth Year: ${resp.birth_year}`;
-  // homeWorld.innerText = `Home World: ${planet}`;
+          } else {
+              throw new Error("Wrong artwork")
+          }
+      })
+      .then((response) => {
+          document.getElementById('homeworld').textContent = "Home World is: " +response.result.properties.name;
+      })
+      
+  })  
+  .finally(() => {
+      document.getElementById('load').style.display = "none"
+  })
 }
-
-
-//Display Home World
-function updateInfo2(re){
- 	// console.log(re.name)
- 	// return re.name;
- 	homeWorld.innerText = `Home World: ${re.name}`;
-}
-
-//Display when Error
-function updateInfoWithError(){
-  names.innerText = 'Oh No! That person isnt available.';
-  height.innerText = ''
-  gender.innerText = ''
-  birthYear.innerText = ''
-  homeWorld.innerText = ''
-}
-
-//Display when updating info (pending data)
-function updateWithLoading(){
-  //Icon link: https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons
-  names.innerHTML = '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> <p>Loading...</p>';
-  height.innerText = ''
-  gender.innerText = ''
-  birthYear.innerText = ''
-  homeWorld.innerText = ''
-}
-
-button.addEventListener('click', getInfo);
-
-
-
-//https://mathiasbynens.be/notes/xhr-responsetype-json
-// Ref: https://www.w3schools.com/js/js_json_http.asp
-// Ref: https://www.freecodecamp.org/forum/t/get-json-with-the-javascript-xmlhttprequest-method/197547
